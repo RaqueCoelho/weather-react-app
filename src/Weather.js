@@ -29,8 +29,9 @@ export default function Weather() {
     setCity(event.target.value);
   }
 
+  <div>
   let form = (
-    <form class="form" onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}>
       <input type="search" placeholder="Enter a city.." onChange={updateCity} />
       <button type="Submit">Search</button>
     </form>
@@ -38,7 +39,6 @@ export default function Weather() {
 
   if (meteorology) {
     return (
-      <div>
         {form}
         <ul>
           <li>Temperature: {Math.round(weather.temperature)}°C</li>
@@ -49,9 +49,8 @@ export default function Weather() {
             <img src={weather.icon} alt={weather.description} />
           </li>
         </ul>
-      </div>
     );
   } else {
-    return form;
+    return {form};
   }
 }
